@@ -14,6 +14,7 @@ class PeliculaTest {
 	Pelicula pelicula = new Pelicula(234, "soule", "soule", 145, null, 8.9, genero, file);
 	Pelicula pelicula2 = new Pelicula(235, "cinderella", "cenicienta", 120, null, 8.9, genero, file);
 
+	// CONSTRUCTOR
 	@Test
 	void testConstructor() {
 		assertEquals(pelicula.getId(), 234);
@@ -39,16 +40,32 @@ class PeliculaTest {
 		assertEquals(pelicula.getId(), 66);
 	}
 
+	// EQUALS
 	@Test
 	void testEquals() {
 		assertEquals(pelicula.equals(pelicula2), false);
 	}
 
+	// TO STRING
 	@Test
 	void testToString() {
 		String str = "Pelicula [id=234, tituloOrigin=soule, tituloCastellano=soule,"
 				+ " duracion=145, descripcion=null, calificacion=8.9, genero=[], image=null]";
 		assertEquals(pelicula.toString(), str);
 	}
+	
+	// GETTERS AND SETTERS
+	@Test // ID
+	void testId() {}
+	@Test // TITULO ORIGINAL
+	void testTituloOrigin() {}
+	@Test // TITULO CASTELLANO
+	void testTituloCastellano() {}
+	@Test // DURACIÓN
+	void testDuracion() {}
+	@Test // DESCRIPCIÓN
+	void testDescripcion() {}
+	@Test // CALIFICACIÓN
+	void testCalificacion() {}
 
 }

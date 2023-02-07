@@ -25,6 +25,7 @@ class FacturaTest {
 	Factura factura = new Factura(5456, 3, 5.99, 0.3, 17.9, 5.4, info, pelicula, sala, cliente);
 	Factura factura2 = new Factura(77, 1, 8.99, 0.0, 8.99, 8.99, info, pelicula, sala, cliente);
 
+	// CONSTRUCTOR //
 	@Test
 	void testConstructor() {
 		assertEquals(factura.getId(), 5456);
@@ -39,24 +40,13 @@ class FacturaTest {
 		assertEquals(factura.getCliente(), cliente);
 	}
 
-	@Test
-	void testGetters() {
-
-		factura.setDescuento(0.5);
-		assertEquals(factura.getDescuento(), 0.3, "se esperaba 0,5");
-	}
-
-	@Test
-	void testSetters() {
-		factura.setInfo(null);
-		assertNull(factura.getInfo());
-	}
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(factura.equals(factura2), false);
 	}
 
+	// TO STRING //
 	@Test
 	void testToString() {
 		String str = "Factura [id=5456, cantidad=3, precioUnidad=5.99, descuento=0.3, precio=17.9, precioTotal=5.4,"
@@ -68,4 +58,45 @@ class FacturaTest {
 		assertEquals(factura.toString(), str);
 	}
 
+	// GETTERS AND SETTERS //
+	@Test // ID
+	void testId() {
+		factura.setId(1);
+		assertEquals(factura.getId(), 1);
+	}
+
+	@Test // CANTIDAD
+	void testCantidad() {
+		factura.setCantidad(1);
+		assertEquals(factura.getCantidad(), 1);
+	}
+
+	@Test // PRECIO UNIDAD
+	void testPrecioUnidad() {
+		factura.setPrecioUnidad(1.2);
+		assertEquals(factura.getPrecioUnidad(), 1.2);
+	}
+
+	@Test // DESCUENTO
+	void testDescuento() {
+		factura.setDescuento(0.5);
+		assertEquals(factura.getDescuento(), 0.3, "se esperaba 0,5");
+	}
+
+	@Test // PRECIO
+	void testPrecio() {
+		factura.setPrecio(1.2);
+		assertEquals(factura.getPrecio(), 1.2);
+	}
+
+	@Test // PRECIO TOTAL
+	void testPrecioTotal() {
+		factura.setPrecioTotal(1.2);
+		assertEquals(factura.getPrecioTotal(), 1.2);
+	}
+	@Test // INFO
+	void testInfo() {
+		factura.setInfo(null);
+		assertNull(factura.getInfo());
+	}
 }

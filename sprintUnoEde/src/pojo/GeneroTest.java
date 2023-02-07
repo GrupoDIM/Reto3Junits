@@ -15,6 +15,7 @@ class GeneroTest {
 	Genero genero = new Genero(1, "Drama", peli);
 	Genero genero1 = new Genero(2, "comedia", peli);
 
+	// CONSTRUCTOR //
 	@Test
 	void testConstructor() {
 
@@ -23,27 +24,30 @@ class GeneroTest {
 		assertEquals(genero.getPelicula(), peli);
 	}
 
-	@Test
-	void testGetters() {
-		genero.setGenero("comedia");
-		assertEquals(genero.getGenero(), "comedia");
-	}
-
-	@Test
-	void testSetters() {
-		genero.setId(22);
-		assertEquals(genero.getId(), 1);
-	}
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(genero.equals(genero1), false);
 	}
 
+	// TO STRING
 	@Test
 	void testToString() {
 		String str = "Genero [id=1, genero=Drama, pelicula=Pelicula [id=234, tituloOrigin=soule, tituloCastellano=soule,"
 				+ " duracion=145, descripcion=null, calificacion=8.9, genero=[], image=null]]";
 		assertEquals(genero.toString(), str);
+	}
+
+	// GETTERS AND SETTERS
+	@Test // ID
+	void testId() {
+		genero.setId(22);
+		assertEquals(genero.getId(), 1);
+	}
+
+	@Test // GENERO
+	void testGenero() {
+		genero.setGenero("comedia");
+		assertEquals(genero.getGenero(), "comedia");
 	}
 }

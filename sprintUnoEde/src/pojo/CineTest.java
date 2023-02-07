@@ -10,6 +10,7 @@ class CineTest {
 	Cine cine2 = new Cine(1112223, "FLOWERS", "direccioncine2", "631556887", "flowers@gmail.com", "48012", "bilbao",
 			"bizkaia");
 
+	// CONSTRUCTOR //
 	@Test
 	void testConstructor() {
 		assertEquals(cine.getId(), 111222);
@@ -22,49 +23,51 @@ class CineTest {
 		assertEquals(cine.getProvincia(), "bizkaia");
 	}
 
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(cine.equals(cine2), false);
 	}
 	
-	@Test
-	void testGetandSetId() {
+	// GETTERS Y SETTERS //
+	
+	@Test // ID
+	void testId() {
 		cine.setId(111222);
 		assertEquals(cine.getId(), 111222);
 	}
-	@Test
-	void testGetandSetNombre() {
+	@Test // NOMBRE
+	void tetNombre() {
 		cine.setNombre("maxcenter");
 		assertEquals(cine.getNombre(), "zubiarte", "se esperaba maxcenter");
 	}
-	@Test
-	void testGetandSetDireccion() {
+	@Test // DIRECCION
+	void testDireccion() {
 		cine.setDireccion ("direccioncine1");
 		assertEquals (cine.getDireccion(), "direccioncine1", "se esperaba maxcenter");
 	}
-	@Test
-	void testGetandSetTele() {
+	@Test // TELEFONO
+	void testTele() {
 		cine.setTele ("631556677");
 		assertEquals (cine.getTele(), "631556677", "se esperaba 631556677");
 	}
-	@Test
-	void testGetandSetMail() {
+	@Test // MAIL
+	void testMail() {
 		cine.setMail ("zubiarte@gmail.com");
 		assertEquals (cine.getMail(), "zubiarte@gmail.com", "se esperaba zubiarte@gmail.com");
 	}
-	@Test
-	void testGetandSetCodPostal() {
+	@Test // CODIGO POSTAL
+	void testCodPostal() {
 		cine.setCodPostal ("48012");
 		assertEquals (cine.getCodPostal(), "48012", "se esperaba 48012");
 	}
-	@Test
-	void testGetandSetCiudad() {
+	@Test // CIUDAD
+	void testCiudad() {
 		cine.setCiudad ("bilbao");
 		assertEquals (cine.getCiudad(), "bilbao", "se esperaba bilbao");
 	}
-	@Test
-	void testGetandSetProvincia() {
+	@Test // PROVINCIA
+	void testProvincia() {
 		cine.setProvincia ("bizkaia");
 		assertEquals (cine.getProvincia(), "bizkaia", "se esperaba bizkaia");
 	}
