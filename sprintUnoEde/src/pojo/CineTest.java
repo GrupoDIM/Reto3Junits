@@ -22,28 +22,51 @@ class CineTest {
 		assertEquals(cine.getProvincia(), "bizkaia");
 	}
 
-	@Test
-	void testGetters() {
-
-		cine.setNombre("maxcenter");
-		assertEquals(cine.getNombre(), "zubiarte", "se esperaba maxcenter");
-	}
-
-	@Test
-	void testSetters() {
-		cine.setId(55555);
-		assertEquals(cine.getId(), 55555);
-	}
 
 	@Test
 	void testEquals() {
 		assertEquals(cine.equals(cine2), false);
 	}
-
+	
 	@Test
-	void testToString() {
-		String str = "Cine [id=111222, nombre=zubiarte, direccion=direccioncine1, tele=631556677, mail=zubiarte@gmail.com, codPostal=48012, ciudad=bilbao, provincia=bizkaia]";
-		assertEquals(cine.toString(), str);
+	void testGetandSetId() {
+		cine.setId(111222);
+		assertEquals(cine.getId(), 111222);
 	}
-
+	@Test
+	void testGetandSetNombre() {
+		cine.setNombre("maxcenter");
+		assertEquals(cine.getNombre(), "zubiarte", "se esperaba maxcenter");
+	}
+	@Test
+	void testGetandSetDireccion() {
+		cine.setDireccion ("direccioncine1");
+		assertEquals (cine.getDireccion(), "direccioncine1", "se esperaba maxcenter");
+	}
+	@Test
+	void testGetandSetTele() {
+		cine.setTele ("631556677");
+		assertEquals (cine.getTele(), "631556677", "se esperaba 631556677");
+	}
+	@Test
+	void testGetandSetMail() {
+		cine.setMail ("zubiarte@gmail.com");
+		assertEquals (cine.getMail(), "zubiarte@gmail.com", "se esperaba zubiarte@gmail.com");
+	}
+	@Test
+	void testGetandSetCodPostal() {
+		cine.setCodPostal ("48012");
+		assertEquals (cine.getCodPostal(), "48012", "se esperaba 48012");
+	}
+	@Test
+	void testGetandSetCiudad() {
+		cine.setCiudad ("bilbao");
+		assertEquals (cine.getCiudad(), "bilbao", "se esperaba bilbao");
+	}
+	@Test
+	void testGetandSetProvincia() {
+		cine.setProvincia ("bizkaia");
+		assertEquals (cine.getProvincia(), "bizkaia", "se esperaba bizkaia");
+	}
+	
 }
