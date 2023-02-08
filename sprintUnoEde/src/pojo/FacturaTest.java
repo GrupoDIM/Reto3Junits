@@ -94,9 +94,28 @@ class FacturaTest {
 		factura.setPrecioTotal(1.2);
 		assertEquals(factura.getPrecioTotal(), 1.2);
 	}
+
 	@Test // INFO
 	void testInfo() {
 		factura.setInfo(null);
 		assertNull(factura.getInfo());
+	}
+
+	@Test // PELICULA
+	void testPelicua() {
+		factura.setPelicula(null);
+		assertNull(factura.getPelicula());
+	}
+
+	@Test // SALA
+	void testSala() {
+		factura.setSala(null);
+		assertNull(factura.getSala());
+	}
+
+	@Test // CLIENTE
+	void testCliente() {
+		factura.setCliente(null);
+		assertNull(factura.getCliente());
 	}
 }

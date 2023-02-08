@@ -1,6 +1,7 @@
 package pojo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,18 +29,6 @@ class PeliculaTest {
 
 	}
 
-	@Test
-	void testGetters() {
-		pelicula.setTituloOrigin("harry Potter");
-		assertEquals(pelicula.getTituloOrigin(), "harry Potter");
-	}
-
-	@Test
-	void testSetters() {
-		pelicula.setId(66);
-		assertEquals(pelicula.getId(), 66);
-	}
-
 	// EQUALS
 	@Test
 	void testEquals() {
@@ -53,19 +42,56 @@ class PeliculaTest {
 				+ " duracion=145, descripcion=null, calificacion=8.9, genero=[], image=null]";
 		assertEquals(pelicula.toString(), str);
 	}
-	
+
 	// GETTERS AND SETTERS
 	@Test // ID
-	void testId() {}
+	void testId() {
+		pelicula.setId(66);
+		assertEquals(pelicula.getId(), 66);
+	}
+
 	@Test // TITULO ORIGINAL
-	void testTituloOrigin() {}
+	void testTituloOrigin() {
+		pelicula.setTituloOrigin("Avatar: The Way of Water");
+		assertEquals(pelicula.getTituloOrigin(), "Avatar: The Way of Water");
+	}
+
 	@Test // TITULO CASTELLANO
-	void testTituloCastellano() {}
+	void testTituloCastellano() {
+		pelicula.setTituloCastellano("Avatar: El sentido del agua");
+		assertEquals(pelicula.getTituloCastellano(), "Avatar: El sentido del agua");
+	}
+
 	@Test // DURACIÓN
-	void testDuracion() {}
+	void testDuracion() {
+		pelicula.setDuracion(3);
+		assertEquals(pelicula.getDuracion(), 3);
+	}
+
 	@Test // DESCRIPCIÓN
-	void testDescripcion() {}
+	void testDescripcion() {
+		pelicula.setDescripcion(
+				"Jake Sully y Ney'tiri han formado una familia y hacen todo lo posible por permanecer juntos. Sin embargo, deben abandonar su hogar y explorar las regiones de Pandora cuando una antigua amenaza reaparece.");
+		assertEquals(pelicula.getDescripcion(),
+				"Jake Sully y Ney'tiri han formado una familia y hacen todo lo posible por permanecer juntos. Sin embargo, deben abandonar su hogar y explorar las regiones de Pandora cuando una antigua amenaza reaparece.");
+	}
+
 	@Test // CALIFICACIÓN
-	void testCalificacion() {}
+	void testCalificacion() {
+		pelicula.setCalificacion(4.3);
+		assertEquals(pelicula.getCalificacion(), 4.3);
+	}
+
+	@Test // GENERO
+	void testGenero() {
+		pelicula.setGenero(null);
+		assertNull(pelicula.getGenero());
+	}
+
+	@Test // IMAGEN
+	void testImage() {
+		pelicula.setImage(null);
+		assertNull(pelicula.getImage());
+	}
 
 }

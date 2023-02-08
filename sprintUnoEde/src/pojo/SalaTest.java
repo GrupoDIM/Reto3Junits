@@ -1,6 +1,7 @@
 package pojo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ class SalaTest {
 	Sala sala = new Sala(1234, "naranja", true, cine, asientos);
 	Sala sala2 = new Sala(4566, "genger", true, cine, asientos);
 
+	// CONSTRUCTOR //
 	@Test
 	void testConstructor() {
 		assertEquals(sala.getId(), 1234);
@@ -25,23 +27,13 @@ class SalaTest {
 
 	}
 
-	@Test
-	void testGetters() {
-		sala.setNombre("BLUE");
-		assertEquals(sala.getNombre(), "BLUE");
-	}
-
-	@Test
-	void testSetters() {
-		sala.setId(83);
-		assertEquals(sala.getId(), 83);
-	}
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(sala.equals(sala2), false);
 	}
 
+	// TO STRING //
 	@Test
 	void testToString() {
 		String str = "Sala [id=1234, nombre=naranja, disponible=true,"
@@ -49,4 +41,34 @@ class SalaTest {
 		assertEquals(sala.toString(), str);
 	}
 
+	// GETTERS AND SETTERS //
+	@Test // ID
+	void testId() {
+		sala.setId(83);
+		assertEquals(sala.getId(), 83);
+	}
+
+	@Test // NOMBRE
+	void testNombre() {
+		sala.setNombre("BLUE");
+		assertEquals(sala.getNombre(), "BLUE");
+	}
+
+	@Test // DISPONIBLE
+	void testDisponible() {
+		sala.setDisponible(false);
+		assertEquals(sala.isDisponible(), false);
+	}
+
+	@Test // CINE
+	void testCine() {
+		sala.setCine(null);
+		assertNull(sala.getCine());
+	}
+
+	@Test // ASIENTOS
+	void test() {
+		sala.setAsientos(null);
+		assertNull(sala.getAsientos());
+	}
 }

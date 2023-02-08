@@ -44,7 +44,7 @@ class ClienteTest {
 	}
 
 	// GETTERS Y SETTERS //
-	
+
 	@Test // ID
 	void testId() {
 		cliente.setId(1);
@@ -97,5 +97,11 @@ class ClienteTest {
 	void testGenero() {
 		cliente.setGenero('M');
 		assertEquals(cliente.getGenero(), 'M');
+	}
+
+	@Test // TICKETS
+	void testTickets() {
+		cliente.setTickets(null);
+		assertNull(cliente.getTickets());
 	}
 }

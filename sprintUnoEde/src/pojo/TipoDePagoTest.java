@@ -14,6 +14,7 @@ class TipoDePagoTest {
 	TipoDePago info = new TipoDePago("1234567543233", "12/23", "324354", cliente, null);
 	TipoDePago info2 = new TipoDePago("1234576767676", "08/26", "324354", cliente, null);
 
+	// CONSTRUCTOR //
 	@Test
 	void testConsructor() {
 		assertEquals(info.getNumTarjeta(), "1234567543233");
@@ -23,23 +24,13 @@ class TipoDePagoTest {
 
 	}
 
-	@Test
-	void testGetters() {
-		info.setCaducidad("11/23");
-		assertEquals(info.getCaducidad(), "11/23");
-	}
-
-	@Test
-	void testSetters() {
-		info.setCliente(null);
-		assertNull(info.getCliente());
-	}
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(info.equals(info2), false);
 	}
 
+	// TO STRING //
 	@Test
 	void testToString() {
 		String str = "TipoDePago [numTarjeta=1234567543233, caducidad=12/23, cvv=324354,"
@@ -47,4 +38,34 @@ class TipoDePagoTest {
 		assertEquals(info.toString(), str);
 	}
 
+	// GETTERS AND SETTERS //
+	@Test // NUMERO DE TARJETA
+	void testNumTarjeta() {
+		info.setNumTarjeta("1234 5675 432 0033");
+		assertEquals(info.getNumTarjeta(), "1234 5675 432 0033");
+	}
+
+	@Test // CADUCIDAD
+	void testCaducidad() {
+		info.setCaducidad("11/23");
+		assertEquals(info.getCaducidad(), "11/23");
+	}
+
+	@Test // CVV
+	void testCvv() {
+		info.setCvv("563");
+		assertEquals(info.getCvv(), "563");
+	}
+
+	@Test // CLIENTE
+	void testCliente() {
+		info.setCliente(null);
+		assertNull(info.getCliente());
+	}
+
+	@Test // FACTURA
+	void testFactura() {
+		info.setFactura(null);
+		assertNull(info.getFactura());
+	}
 }

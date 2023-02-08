@@ -1,6 +1,7 @@
 package pojo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.File;
 
@@ -23,6 +24,7 @@ class ProyeccionTest {
 	Proyeccion proyec = new Proyeccion(sala, pelicula, null, null, 9.99);
 	Proyeccion proyec1 = new Proyeccion(sala1, pelicula, null, null, 9.99);
 
+	// CONSTRUCTOR //
 	@Test
 	void testConstuctor() {
 		assertEquals(proyec.getSala(), sala);
@@ -32,23 +34,13 @@ class ProyeccionTest {
 		assertEquals(proyec.getPrecio(), 9.99);
 	}
 
-	@Test
-	void testGetters() {
-		proyec.setPrecio(5.99);
-		assertEquals(proyec.getPrecio(), 9.99, "se esperaba 5,99");
-	}
-
-	@Test
-	void testSetters() {
-		proyec.setSala(sala1);
-		assertEquals(proyec.getSala(), sala1);
-	}
-
+	// EQUALS //
 	@Test
 	void testEquals() {
 		assertEquals(proyec.equals(proyec1), false);
 	}
 
+	// TO STRING //
 	@Test
 	void testToString() {
 		String str = "Proyeccion [sala=Sala [id=1234, nombre=naranja, disponible=true,"
@@ -57,4 +49,30 @@ class ProyeccionTest {
 		assertEquals(proyec.toString(), str);
 	}
 
+	// GETTERS AND SETTERS //
+	@Test // SALA
+	void testSala() {
+		proyec.setSala(sala1);
+		assertEquals(proyec.getSala(), sala1);
+	}
+	@Test // PELICULA
+	void testPelicula() {
+		proyec.setPelicula(pelicula);
+		assertEquals(proyec.getPelicula(), pelicula);
+	}
+	@Test // FECHA
+	void testFecha() {
+		proyec.setFecha(null);
+		assertNull(proyec.getFecha());
+	}
+	@Test // HORA
+	void testHora() {
+		proyec.setHora(null);
+		assertNull(proyec.getHora());
+	}
+	@Test // PRECIO
+	void testPrecio() {
+		proyec.setPrecio(5.99);
+		assertEquals(proyec.getPrecio(), 9.99, "se esperaba 5,99");
+	}
 }

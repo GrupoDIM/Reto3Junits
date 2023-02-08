@@ -50,4 +50,10 @@ class GeneroTest {
 		genero.setGenero("comedia");
 		assertEquals(genero.getGenero(), "comedia");
 	}
+
+	@Test // PELICULA
+	void testPelicula() {
+		genero.setPelicula(null);
+		assertNull(genero.getPelicula());
+	}
 }

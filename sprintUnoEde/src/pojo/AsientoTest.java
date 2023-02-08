@@ -61,4 +61,10 @@ class AsientoTest {
 		asiento.setDisponible(false);
 		assertEquals(asiento.isDisponible(), false);
 	}
+
+	@Test // SALA
+	void testSala() {
+		asiento.setSala(null);
+		assertNull(asiento.getSala());
+	}
 }
