@@ -9,12 +9,11 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class SalaTest {
-	List<Asiento> asientos = new ArrayList<Asiento>();
 	Cine cine = new Cine(111222, "ZUBIARTE", "direccioncine1", "631556677", "zubiarte@gmail.com", "48012", "bilbao",
 			"bizkaia");
 
-	Sala sala = new Sala(1234, "naranja", true, cine, asientos);
-	Sala sala2 = new Sala(4566, "genger", true, cine, asientos);
+	Sala sala = new Sala(1234, "naranja", true, cine);
+	Sala sala2 = new Sala(4566, "genger", true,  cine );
 
 	// CONSTRUCTOR //
 	@Test
@@ -23,7 +22,7 @@ class SalaTest {
 		assertEquals(sala.getNombre(), "naranja");
 		assertEquals(sala.isDisponible(), true);
 		assertEquals(sala.getCine(), cine);
-		assertEquals(sala.getAsientos().isEmpty(), true);
+
 
 	}
 
@@ -66,9 +65,5 @@ class SalaTest {
 		assertNull(sala.getCine());
 	}
 
-	@Test // ASIENTOS
-	void test() {
-		sala.setAsientos(null);
-		assertNull(sala.getAsientos());
-	}
+	
 }

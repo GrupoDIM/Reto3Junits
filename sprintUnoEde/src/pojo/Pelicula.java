@@ -7,34 +7,23 @@ import java.util.List;
 import java.util.Objects;
 
 public class Pelicula implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1118137812699292414L;
-	/**
-	 * 
-	 */
 
+	private static final long serialVersionUID = -1118137812699292414L;
+	// Primary key
 	private int id;
+
 	private String tituloOrigin = null;
 	private String tituloCastellano = null;
-	private int duracion;
+	private String duracion;
 	private String descripcion = null;
 	private double calificacion;
-	private List<Genero> genero = new ArrayList<Genero>();
 	private File image = null;
+	// Foreign key //La relacion entre Pelicula y Genero es 1:N
+	private List<Genero> genero = new ArrayList<Genero>();
 
-	public Pelicula(int id, String tituloOrigin, String tituloCastellano, int duracion, String descripcion,
-			double calificacion, List<Genero> genero, File image) {
-		super();
-		this.id = id;
-		this.tituloOrigin = tituloOrigin;
-		this.tituloCastellano = tituloCastellano;
-		this.duracion = duracion;
-		this.descripcion = descripcion;
-		this.calificacion = calificacion;
-		this.genero = genero;
-		this.image = image;
+	public Pelicula(int i, String string, String string2, int j, Object object, double d, List<Genero> genero2,
+			File file) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -61,11 +50,11 @@ public class Pelicula implements Serializable {
 		this.tituloCastellano = tituloCastellano;
 	}
 
-	public int getDuracion() {
+	public String getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(int duracion) {
+	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
 
@@ -116,7 +105,7 @@ public class Pelicula implements Serializable {
 			return false;
 		Pelicula other = (Pelicula) obj;
 		return Double.doubleToLongBits(calificacion) == Double.doubleToLongBits(other.calificacion)
-				&& Objects.equals(descripcion, other.descripcion) && duracion == other.duracion
+				&& Objects.equals(descripcion, other.descripcion) && Objects.equals(duracion, other.duracion)
 				&& Objects.equals(genero, other.genero) && id == other.id && Objects.equals(image, other.image)
 				&& Objects.equals(tituloCastellano, other.tituloCastellano)
 				&& Objects.equals(tituloOrigin, other.tituloOrigin);
@@ -126,7 +115,7 @@ public class Pelicula implements Serializable {
 	public String toString() {
 		return "Pelicula [id=" + id + ", tituloOrigin=" + tituloOrigin + ", tituloCastellano=" + tituloCastellano
 				+ ", duracion=" + duracion + ", descripcion=" + descripcion + ", calificacion=" + calificacion
-				+ ", genero=" + genero + ", image=" + image + "]";
+				+ ", image=" + image + ", genero=" + genero + "]";
 	}
 
 }

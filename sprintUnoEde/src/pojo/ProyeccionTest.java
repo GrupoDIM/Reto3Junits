@@ -12,12 +12,12 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class ProyeccionTest {
-	List<Asiento> asientos = new ArrayList<Asiento>();
+	
 	Cine cine = new Cine(111222, "ZUBIARTE", "direccioncine1", "631556677", "zubiarte@gmail.com", "48012", "bilbao",
 			"bizkaia");
 
-	Sala sala = new Sala(1234, "naranja", true, cine, asientos);
-	Sala sala1 = new Sala(1237, "jasmin", true, cine, asientos);
+	Sala sala = new Sala(1234, "naranja", true, cine);
+	Sala sala1 = new Sala(1237, "jasmin", true, cine);
 	List<Genero> genero = new ArrayList<Genero>();
 	File file = null;
 	Pelicula pelicula = new Pelicula(234, "soule", "soule", 145, null, 8.9, genero, file);

@@ -64,8 +64,8 @@ class PeliculaTest {
 
 	@Test // DURACIÓN
 	void testDuracion() {
-		pelicula.setDuracion(3);
-		assertEquals(pelicula.getDuracion(), 3);
+		pelicula.setDuracion("3:10:00");
+		assertEquals(pelicula.getDuracion(), "3:10:00");
 	}
 
 	@Test // DESCRIPCIÓN

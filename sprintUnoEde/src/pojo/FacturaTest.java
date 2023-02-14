@@ -10,20 +10,14 @@ import org.junit.jupiter.api.Test;
 
 class FacturaTest {
 
-	List<Asiento> asientos = new ArrayList<Asiento>();
-	Cine cine = new Cine(111222, "ZUBIARTE", "direccioncine1", "631556677", "zubiarte@gmail.com", "48012", "bilbao",
-			"bizkaia");
-
-	Sala sala = new Sala(1234, "naranja", true, cine, asientos);
 	List<Genero> genero = new ArrayList<Genero>();
 	File file = null;
 	Pelicula pelicula = new Pelicula(234, "soule", "soule", 145, null, 8.9, genero, file);
 	List<Factura> tickets = new ArrayList<Factura>();
 	Cliente cliente = new Cliente(1234, "12134567G", "user", "userLastName", "userLastName2", "user@gmail.com",
 			"631565644", "Y1234yk", 'F', tickets);
-	TipoDePago info = new TipoDePago("121345657687", null, "23456", cliente, null);
-	Factura factura = new Factura(5456, 3, 5.99, 0.3, 17.9, 5.4, info, pelicula, sala, cliente);
-	Factura factura2 = new Factura(77, 1, 8.99, 0.0, 8.99, 8.99, info, pelicula, sala, cliente);
+	Factura factura = new Factura(5456, 3, 5.99, 0.3, 17.9, 5.4, pelicula, cliente);
+	Factura factura2 = new Factura(77, 1, 8.99, 0.0, 8.99, 8.99, pelicula, cliente);
 
 	// CONSTRUCTOR //
 	@Test
@@ -31,12 +25,8 @@ class FacturaTest {
 		assertEquals(factura.getId(), 5456);
 		assertEquals(factura.getCantidad(), 3);
 		assertEquals(factura.getPrecioUnidad(), 5.99);
-		assertEquals(factura.getDescuento(), 0.3);
-		assertEquals(factura.getPrecio(), 17.9);
+
 		assertEquals(factura.getPrecioTotal(), 5.4);
-		assertEquals(factura.getInfo(), info);
-		assertEquals(factura.getPelicula(), pelicula);
-		assertEquals(factura.getSala(), sala);
 		assertEquals(factura.getCliente(), cliente);
 	}
 
@@ -77,40 +67,10 @@ class FacturaTest {
 		assertEquals(factura.getPrecioUnidad(), 1.2);
 	}
 
-	@Test // DESCUENTO
-	void testDescuento() {
-		factura.setDescuento(0.5);
-		assertEquals(factura.getDescuento(), 0.3, "se esperaba 0,5");
-	}
-
-	@Test // PRECIO
-	void testPrecio() {
-		factura.setPrecio(1.2);
-		assertEquals(factura.getPrecio(), 1.2);
-	}
-
 	@Test // PRECIO TOTAL
 	void testPrecioTotal() {
 		factura.setPrecioTotal(1.2);
 		assertEquals(factura.getPrecioTotal(), 1.2);
-	}
-
-	@Test // INFO
-	void testInfo() {
-		factura.setInfo(null);
-		assertNull(factura.getInfo());
-	}
-
-	@Test // PELICULA
-	void testPelicua() {
-		factura.setPelicula(null);
-		assertNull(factura.getPelicula());
-	}
-
-	@Test // SALA
-	void testSala() {
-		factura.setSala(null);
-		assertNull(factura.getSala());
 	}
 
 	@Test // CLIENTE

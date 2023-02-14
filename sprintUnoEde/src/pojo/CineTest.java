@@ -5,8 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class CineTest {
-	Cine cine = new Cine(111222, "zubiarte", "direccioncine1", "631556677", "zubiarte@gmail.com", "48012", "bilbao",
-			"bizkaia");
+	Cine cine = new Cine(111222, "zubiarte", "direccioncine1", "631556677", "zubiarte@gmail.com", "48012", "bilbao", "bizkaia");
 	Cine cine2 = new Cine(1112223, "FLOWERS", "direccioncine2", "631556887", "flowers@gmail.com", "48012", "bilbao",
 			"bizkaia");
 

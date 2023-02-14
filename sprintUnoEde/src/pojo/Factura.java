@@ -12,30 +12,22 @@ public class Factura implements Serializable {
 	 * 
 	 */
 
+	// Primary key
 	private int id;
+
+	// Atributos
 	private int cantidad;
 	private double precioUnidad;
-	private double descuento;
-	private double precio;
 	private double precioTotal;
-	private TipoDePago info = null;
-	private Pelicula pelicula = null;
-	private Sala sala = null;
+
+	// fk La relacion entre Factura y Proyeccion es de N:1
+	private Proyeccion proyeccion = null;
+
+	// Foreign key La relacion entre Factura y Cliente es de 1:1
 	private Cliente cliente = null;
 
-	public Factura(int id, int cantidad, double precioUnidad, double descuento, double precio, double precioTotal,
-			TipoDePago info, Pelicula pelicula, Sala sala, Cliente cliente) {
-		super();
-		this.id = id;
-		this.cantidad = cantidad;
-		this.precioUnidad = precioUnidad;
-		this.descuento = descuento;
-		this.precio = precio;
-		this.precioTotal = precioTotal;
-		this.info = info;
-		this.pelicula = pelicula;
-		this.sala = sala;
-		this.cliente = cliente;
+	public Factura(int i, int j, double d, double e, double f, double g, Pelicula pelicula, Cliente cliente2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -54,22 +46,6 @@ public class Factura implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public double getDescuento() {
-		return descuento;
-	}
-
-	public void setDescuento(double descuento) {
-		this.descuento = descuento;
-	}
-
 	public double getPrecioUnidad() {
 		return precioUnidad;
 	}
@@ -86,28 +62,12 @@ public class Factura implements Serializable {
 		this.precioTotal = precioTotal;
 	}
 
-	public TipoDePago getInfo() {
-		return info;
+	public Proyeccion getProyeccion() {
+		return proyeccion;
 	}
 
-	public void setInfo(TipoDePago info) {
-		this.info = info;
-	}
-
-	public Pelicula getPelicula() {
-		return pelicula;
-	}
-
-	public void setPelicula(Pelicula pelicula) {
-		this.pelicula = pelicula;
-	}
-
-	public Sala getSala() {
-		return sala;
-	}
-
-	public void setSala(Sala sala) {
-		this.sala = sala;
+	public void setProyeccion(Proyeccion proyeccion) {
+		this.proyeccion = proyeccion;
 	}
 
 	public Cliente getCliente() {
@@ -120,7 +80,7 @@ public class Factura implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cantidad, cliente, descuento, id, info, pelicula, precio, precioTotal, precioUnidad, sala);
+		return Objects.hash(cantidad, cliente, id, precioTotal, precioUnidad, proyeccion);
 	}
 
 	@Override
@@ -132,20 +92,16 @@ public class Factura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Factura other = (Factura) obj;
-		return cantidad == other.cantidad && Objects.equals(cliente, other.cliente)
-				&& Double.doubleToLongBits(descuento) == Double.doubleToLongBits(other.descuento) && id == other.id
-				&& Objects.equals(info, other.info) && Objects.equals(pelicula, other.pelicula)
-				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+		return cantidad == other.cantidad && Objects.equals(cliente, other.cliente) && id == other.id
 				&& Double.doubleToLongBits(precioTotal) == Double.doubleToLongBits(other.precioTotal)
 				&& Double.doubleToLongBits(precioUnidad) == Double.doubleToLongBits(other.precioUnidad)
-				&& Objects.equals(sala, other.sala);
+				&& Objects.equals(proyeccion, other.proyeccion);
 	}
 
 	@Override
 	public String toString() {
-		return "Factura [id=" + id + ", cantidad=" + cantidad + ", precioUnidad=" + precioUnidad + ", descuento="
-				+ descuento + ", precio=" + precio + ", precioTotal=" + precioTotal + ", info=" + info + ", pelicula="
-				+ pelicula + ", sala=" + sala + ", cliente=" + cliente + "]";
+		return "Factura [id=" + id + ", cantidad=" + cantidad + ", precioUnidad=" + precioUnidad + ", precioTotal="
+				+ precioTotal + ", proyeccion=" + proyeccion + ", cliente=" + cliente + "]";
 	}
 
 }

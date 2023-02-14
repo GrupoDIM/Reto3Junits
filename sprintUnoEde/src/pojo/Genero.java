@@ -5,23 +5,19 @@ import java.util.Objects;
 
 public class Genero implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8795581819198864173L;
-	/**
-	 * 
-	 */
 
+	// Primary Key
 	private int id;
+
+	// Atributos
 	private String genero = null;
+
+	// La relacion entre Genero y Pelicula es de 1:1
 	private Pelicula pelicula = null;
 
-	public Genero(int id, String genero, Pelicula pelicula) {
-		super();
-		this.id = id;
-		this.genero = genero;
-		this.pelicula = pelicula;
+	public Genero(int i, String string, Pelicula peli) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
